@@ -1,8 +1,8 @@
 {
-  "name": "markdown-renderer",
-  "description": "Webcomponent markdown-renderer following open-wc recommendations",
+  "name": "@scoped-elements/markdown-renderer",
+  "description": "Fork of prismjs-markdown-element following the @open-wc/scoped-elements pattern",
   "license": "MIT",
-  "author": "markdown-renderer",
+  "author": "guillem.cordoba@gmail.com",
   "version": "0.0.1",
   "main": "dist/index.js",
   "module": "dist/index.js",

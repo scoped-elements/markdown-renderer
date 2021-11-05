@@ -1,48 +1,47 @@
-# \<markdown-renderer>
+# @scoped-elements/markdown-renderer
 
-This webcomponent follows the [open-wc](https://github.com/open-wc/open-wc) recommendation.
+This is the [prismjs-markdown-element](https://www.npmjs.com/package/prism-markdown-element) library packaged using the scoped custom elements registries pattern using [@open-wc/scoped-elements](https://www.npmjs.com/package/@open-wc/scoped-elements).
 
 ## Installation
 
 ```bash
-npm i markdown-renderer
+npm i @scoped-elements/markdown-renderer
 ```
 
 ## Usage
 
-```html
-<script type="module">
-  import 'markdown-renderer/markdown-renderer.js';
-</script>
+### As an sub element in your own custom element
 
-<markdown-renderer></markdown-renderer>
+```js
+import { MarkdownRenderer } from '@scoped-elements/markdown-renderer';
+import { ScopedElementsMixin } from '@open-wc/scoped-elements';
+
+export class CustomElement extends ScopedElementsMixin(LitElement) {
+  static get scopedElements() {
+    return {
+      'markdown-renderer': Checkbox
+    };
+  }
+
+  render() {
+    return html`
+      <markdown-renderer markdown="# Hi!"></markdown-renderer>
+    `;
+  }
+}
 ```
 
-## Linting and formatting
+### As a globally defined custom element
 
-To scan the project for linting and formatting errors, run
+```js
+import { MarkdownRenderer } from '@scoped-elements/markdown-renderer';
 
-```bash
-npm run lint
+customElements.define('markdown-renderer', MarkdownRenderer);
+
 ```
 
-To automatically fix linting and formatting errors, run
+## Documentation for the elements
 
-```bash
-npm run format
-```
+As this package is just a re-export, you can find the documentation for the elements in each of their npm pages, e.g.: https://www.npmjs.com/package/prism-markdown-element.
 
-
-## Tooling configs
-
-For most of the tools, the configuration is in the `package.json` to reduce the amount of files in your project.
-
-If you customize the configuration a lot, you can consider moving them to individual files.
-
-## Local Demo with `web-dev-server`
-
-```bash
-npm start
-```
-
-To run a local development server that serves the basic demo located in `demo/index.html`
+Custom theming is not supported yet.
