@@ -1,6 +1,6 @@
 import Prism from 'prismjs';
 import commonmark from 'commonmark';
-import { LitElement, html, PropertyValues, TemplateResult } from 'lit';
+import { LitElement, html, PropertyValues, TemplateResult, css } from 'lit';
 import { unsafeHTML } from 'lit/directives/unsafe-html.js';
 import { property, state } from 'lit/decorators.js';
 
@@ -89,4 +89,12 @@ export class MarkdownRenderer extends LitElement {
   render() {
     return html` ${this._styles} ${this._markdownRendered}`;
   }
+
+  static styles = [
+    css`
+      :host {
+        word-break: break-all;
+      }
+    `,
+  ];
 }
