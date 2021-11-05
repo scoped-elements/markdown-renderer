@@ -9,6 +9,9 @@
   "files": [
     "dist"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "analyze": "cem analyze --litelement",
     "start": "rollup -c && concurrently -k -r \"rollup -c --watch\" \"wds\"",
