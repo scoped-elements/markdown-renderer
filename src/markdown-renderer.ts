@@ -55,7 +55,7 @@ export class MarkdownRenderer extends LitElement {
     if (changedValues.has('mdsrc') && this.mdsrc) {
       this.fetchMd(this.mdsrc);
     }
-    if (changedValues.has('markdown') && this.markdown) {
+    if (changedValues.has('markdown') && this.markdown !== undefined) {
       this._markdownRendered = this.parseMarkdown(this.markdown);
     }
     Prism.highlightAllUnder(this.shadowRoot as any);
